@@ -1,19 +1,24 @@
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
+import Weather from "./Weather";
 
 function App() {
   return (
     <div className="App">
-      Weather Application
-      <footer>
-        This project was coded by Marcella Fox and is{" "}
-        <a
-          href="https://github.com/MarcellaFox/react-weather-app"
-          target="_blank"
-          rel="noreferrer"
-        >
-          open-sourced on GitHub
-        </a>
-      </footer>
+      <div className="container">
+        <Weather />
+        <footer>
+          This project was coded by Marcella Fox and is{" "}
+          <a
+            href="https://github.com/MarcellaFox/react-weather-app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            open-sourced on GitHub
+          </a>
+        </footer>
+      </div>
     </div>
   );
 }
