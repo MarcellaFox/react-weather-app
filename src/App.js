@@ -9,14 +9,16 @@ function App() {
       <div className="container">
         <Weather defaultCity="Brisbane" />
         <footer>
-          This project was coded by Marcella Fox and is{" "}
+          This project was coded by Marcella Fox. It is{" "}
           <a
             href="https://github.com/MarcellaFox/react-weather-app"
             target="_blank"
             rel="noreferrer"
           >
             open-sourced on GitHub
-          </a>
+          </a>{" "}
+          and hosted on{" "}
+          <a href="https://jolly-pothos-9c9aab.netlify.app/">Netlify</a>
         </footer>
       </div>
     </div>
