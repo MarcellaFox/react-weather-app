@@ -18,7 +18,13 @@ function App() {
             open-sourced on GitHub
           </a>{" "}
           and hosted on{" "}
-          <a href="https://jolly-pothos-9c9aab.netlify.app/">Netlify</a>
+          <a
+            href="https://jolly-pothos-9c9aab.netlify.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Netlify
+          </a>
         </footer>
       </div>
     </div>
