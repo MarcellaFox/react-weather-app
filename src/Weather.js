@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
+import Search from "./Search";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [city, setCity] = useState(props.defaultCity);
+  const [city, setCity] = useState(props.defaultLocation);
 
   function handleResponse(response) {
-    console.log(response);
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
@@ -42,26 +42,7 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <form onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col-9">
-              <input
-                type="search"
-                placeholder="Search for a city..."
-                className="form-control"
-                autoFocus="on"
-                onChange={handleCityChange}
-              />
-            </div>
-            <div className="col-3">
-              <input
-                type="submit"
-                value="Search"
-                className="btn btn-primary w-100"
-              />
-            </div>
-          </div>
-        </form>
+        <Search onSubmit={handleSubmit} onChange={handleCityChange} />
         <WeatherInfo data={weatherData} />
         <WeatherForecast coordinates={weatherData.coordinates} />
       </div>

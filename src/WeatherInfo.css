@@ -1,0 +1,16 @@
+.WeatherInfo {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.WeatherInfo h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 40px;
+  margin: 50px 0;
+}
+
+.weather-details ul {
+  margin-top: 10px;
+}
