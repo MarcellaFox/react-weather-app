@@ -14,3 +14,11 @@
 .weather-details ul {
   margin-top: 10px;
 }
+
+.main-icon svg {
+  width: 200px;
+}
+
+.main-icon {
+  margin: 60px;
+}

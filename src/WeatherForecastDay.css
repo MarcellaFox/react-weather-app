@@ -1,3 +1,15 @@
 .forecast-icon {
   margin: 10px 0px;
 }
+
+.forecast-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.main-icon {
+}
+
+.main-icon svg {
+  height: 100px;
+}
