@@ -12,7 +12,7 @@ export default function WeatherIcon(props) {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <circle cx="32" cy="32" r="32" fill="#F5C456" />
+        <circle cx="32" cy="32" r="32" fill="#FF831B" />
       </svg>
     );
   } else if (props.code === "01n") {
