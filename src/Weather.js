@@ -11,6 +11,15 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultLocation);
 
   function handleResponse(response) {
+    // Current datetime at search location, in our local timezone.
+    const date = new Date();
+    // Remove our timezone offset.
+    const timezoneOffsetSeconds = date.getTimezoneOffset() * 60;
+    const utcTimestampSeconds = date.valueOf() / 1000 + timezoneOffsetSeconds;
+    const searchLocationTimestamp =
+      (utcTimestampSeconds + response.data.timezone) * 1000;
+    const searchLocationDatetimeNow = new Date(searchLocationTimestamp);
+
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
@@ -20,9 +29,12 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
-      date: new Date(response.data.dt * 1000),
+      // date: new Date(response.data.dt * 1000),
+      date: searchLocationDatetimeNow,
       feelslike: response.data.main.feels_like,
     });
+
+    props.setTime(searchLocationDatetimeNow);
   }
 
   function search() {
@@ -30,6 +42,13 @@ export default function Weather(props) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
+
+  // setTime(new Date(response.data.dt * 1000));
+
+  // let hour = new Date(time).getHours();
+  // console.log(hour);
+
+  // const DayNightBG = hour > 6 && hour < 18 ? "day-bg" : "night-bg";
 
   function handleSubmit(event) {
     event.preventDefault();

@@ -6,7 +6,7 @@
   border-radius: 50px;
 
   padding: 5px;
-  background: var(--background-color);
+  background: none;
   transition: all 0.5s ease;
 
   display: flex;

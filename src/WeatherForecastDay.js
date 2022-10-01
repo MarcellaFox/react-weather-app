@@ -20,6 +20,8 @@ export default function WeatherForecastDay(props) {
     return days[day];
   }
 
+  // const forecastIcon = time === nighttime && code contains 'd' ? swap 'd' for 'n' : null;
+
   return (
     <div>
       <div className="WeatherForecast-day">{day()}</div>
