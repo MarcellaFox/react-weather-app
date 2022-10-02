@@ -2,7 +2,11 @@ import React from "react";
 import "./WeatherIcon.css";
 
 export default function WeatherIcon(props) {
-  if (props.code === "01d") {
+  let hour = new Date(props.time).getHours();
+  // console.log(hour);
+  // console.log(props.code);
+
+  if (hour > 6 && hour < 18 && props.code === "01d") {
     return (
       <svg
         className="clear-day"
@@ -15,7 +19,10 @@ export default function WeatherIcon(props) {
         <circle cx="32" cy="32" r="32" fill="#FF831B" />
       </svg>
     );
-  } else if (props.code === "01n") {
+  } else if (
+    ((hour < 6 || hour > 18) && props.code === "01d") ||
+    props.code === "01n"
+  ) {
     return (
       <svg
         className="clear-night"
@@ -37,63 +44,35 @@ export default function WeatherIcon(props) {
         />
       </svg>
     );
-  } else if (props.code === "02d") {
+  } else if (props.code === "02d" && hour > 6 && hour < 18) {
     return (
       <svg
-        className="rain"
+        className="partly-cloudy-day"
         width="64"
-        height="38"
-        viewBox="0 0 64 38"
+        height="44"
+        viewBox="0 0 64 44"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <circle cx="18.5163" cy="18.5163" r="18.5163" fill="#FF831B" />
         <rect
-          x="3.57541"
-          y="23.9553"
-          width="55.2402"
-          height="13.9441"
-          rx="6.97207"
+          x="10.0303"
+          y="30.8918"
+          width="49.3392"
+          height="12.4546"
+          rx="6.22728"
           fill="white"
         />
-        <circle cx="8.49162" cy="29.4079" r="8.49162" fill="white" />
-        <circle cx="19.1285" cy="18.7709" r="10.7263" fill="white" />
-        <circle cx="38.7039" cy="15.4637" r="15.4637" fill="white" />
-        <circle cx="54.1676" cy="28.067" r="9.8324" fill="white" />
+        <circle cx="14.4213" cy="35.7619" r="7.5845" fill="white" />
+        <circle cx="23.9219" cy="26.2613" r="9.58043" fill="white" />
+        <circle cx="41.4062" cy="23.3074" r="13.8118" fill="white" />
+        <circle cx="55.2179" cy="34.5643" r="8.78206" fill="white" />
       </svg>
     );
-  } else if (props.code === "02n") {
+  } else if (props.code === "02n" || props.code === "02d") {
     return (
       <svg
-        className="cloudy-night"
-        width="64"
-        height="48"
-        viewBox="0 0 64 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M0 27.2674C2.37605 28.5155 5.0813 29.2217 7.95148 29.2217C17.4084 29.2217 25.0748 21.5553 25.0748 12.0983C25.0748 7.37479 23.1622 3.09795 20.0692 0C28.6808 1.67944 35.1804 9.26446 35.1804 18.3675C35.1804 28.703 26.8018 37.0816 16.4664 37.0816C9.35248 37.0816 3.1657 33.1122 0 27.2674Z"
-          fill="#FFE29F"
-        />
-        <rect
-          x="10.8176"
-          y="34.9603"
-          width="48.6194"
-          height="12.2729"
-          rx="6.13643"
-          fill="white"
-        />
-        <circle cx="15.1445" cy="39.7593" r="7.47385" fill="white" />
-        <circle cx="24.5066" cy="30.3973" r="9.44065" fill="white" />
-        <circle cx="41.7358" cy="27.4865" r="13.6103" fill="white" />
-        <circle cx="55.3458" cy="38.5792" r="8.65393" fill="white" />
-      </svg>
-    );
-  } else if (props.code === "03n" || props.code === "04n") {
-    return (
-      <svg
+        className="partly-cloudy-night"
         width="64"
         height="48"
         viewBox="0 0 64 48"
@@ -120,7 +99,12 @@ export default function WeatherIcon(props) {
         <circle cx="55.3458" cy="38.5792" r="8.65393" fill="white" />
       </svg>
     );
-  } else if (props.code === "03d" || props.code === "04d") {
+  } else if (
+    props.code === "03d" ||
+    props.code === "04d" ||
+    props.code === "03n" ||
+    props.code === "04n"
+  ) {
     return (
       <svg
         className="cloudy"

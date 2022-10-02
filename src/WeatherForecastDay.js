@@ -20,13 +20,11 @@ export default function WeatherForecastDay(props) {
     return days[day];
   }
 
-  // const forecastIcon = time === nighttime && code contains 'd' ? swap 'd' for 'n' : null;
-
   return (
     <div>
       <div className="WeatherForecast-day">{day()}</div>
       <div className="forecast-icon">
-        <WeatherIcon code={props.data.weather[0].icon} />
+        <WeatherIcon code={props.data.weather[0].icon} time={props.time} />
       </div>
       <div className="WeatherForecast-temperatures">
         <span className="WeatherForecast-temperature-min">

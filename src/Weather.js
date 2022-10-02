@@ -43,13 +43,6 @@ export default function Weather(props) {
     axios.get(apiUrl).then(handleResponse);
   }
 
-  // setTime(new Date(response.data.dt * 1000));
-
-  // let hour = new Date(time).getHours();
-  // console.log(hour);
-
-  // const DayNightBG = hour > 6 && hour < 18 ? "day-bg" : "night-bg";
-
   function handleSubmit(event) {
     event.preventDefault();
     search(city);
@@ -64,7 +57,10 @@ export default function Weather(props) {
       <div className="Weather">
         <Search onSubmit={handleSubmit} onChange={handleCityChange} />
         <WeatherInfo data={weatherData} />
-        <WeatherForecast coordinates={weatherData.coordinates} />
+        <WeatherForecast
+          coordinates={weatherData.coordinates}
+          time={weatherData.date}
+        />
       </div>
     );
   } else {
