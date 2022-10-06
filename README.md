@@ -2,7 +2,7 @@
 
 https://jolly-pothos-9c9aab.netlify.app/
 
-![](https://github.com/react-weather-app/weather-app-recording.gif)
+![](weather-app-recording.gif)
 
 # Getting Started with Create React App
 
