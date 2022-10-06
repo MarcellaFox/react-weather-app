@@ -2,7 +2,7 @@
 
 https://jolly-pothos-9c9aab.netlify.app/
 
-<img src="assets/weather-app-recording.gif" >
+![Weather Application Demo](weather-app-recording.gif)
 
 # Getting Started with Create React App
 
