@@ -1,3 +1,9 @@
+# Weather Application by Marcella Fox
+
+https://jolly-pothos-9c9aab.netlify.app/
+
+<img src="assets/weather-app-recording.gif" >
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
